@@ -1,4 +1,5 @@
 Otimizando Processos: Automação de Cadastro de Produtos em Python
+
 Este projeto demonstra como a automação pode otimizar tarefas repetitivas, como o cadastro de dados em um sistema web. Utilizando as bibliotecas pyautogui, pandas e time, o script automatiza o preenchimento de formulários a partir de uma planilha, economizando tempo e minimizando erros.
 
 💻 Tecnologias Utilizadas
