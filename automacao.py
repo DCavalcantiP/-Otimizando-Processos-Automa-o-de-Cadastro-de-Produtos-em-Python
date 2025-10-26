@@ -9,7 +9,7 @@ import time
 # pyautogui.press -> apertar 1 tecla
 # pyautogui.click -> clicar em algum lugar da tela
 # pyautogui.hotkey -> combinação de teclas
-pyautogui.PAUSE = 0.3
+pyautogui.PAUSE = 0.5
 
 # abrir o navegador (chrome)
 pyautogui.press("win")
@@ -29,10 +29,10 @@ pyautogui.click(x=769, y=404)
 pyautogui.write("emaildeteste@gmail.com")
 pyautogui.press("tab") # passando pro próximo campo
 pyautogui.write("sua senha")
-pyautogui.click(x=958, y=565) # clique no botao de login
+pyautogui.press("enter") # clique no botao de login
 time.sleep(3)
 
-pyautogui.click(x=1130, y=366)
+pyautogui.click(x=780, y=291)
 
 # Passo 3: Importar a base de produtos pra cadastrar
 import pandas as pd
@@ -44,7 +44,7 @@ print(tabela)
 # Passo 4: Cadastrar um produto
 for linha in tabela.index:
     # clicar no campo de código
-    pyautogui.click(x=653, y=294)
+    pyautogui.click(x=780, y=291)
     # pegar da tabela o valor do campo que a gente quer preencher
     codigo = tabela.loc[linha, "codigo"]
     # preencher o campo
@@ -63,10 +63,13 @@ for linha in tabela.index:
     pyautogui.write(str(tabela.loc[linha, "custo"]))
     pyautogui.press("tab")
     obs = tabela.loc[linha, "obs"]
-    if not pd.isna(obs):
+    if not pd.isna (obs):
         pyautogui.write(str(tabela.loc[linha, "obs"]))
-    pyautogui.press("tab")
+    time.sleep(1)
+    pyautogui.scroll(5000)
+    pyautogui.click(x=780, y=291)
     pyautogui.press("enter") # cadastra o produto (botao enviar)
+    time.sleep(1)
     # dar scroll de tudo pra cima
     pyautogui.scroll(5000)
     # Passo 5: Repetir o processo de cadastro até o fim
